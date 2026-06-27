@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import "tailwindcss";
+
+* {
+  cursor: none !important;
+}
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-serif: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  --animate-leak-one: leak-one 25s infinite alternate ease-in-out;
+  --animate-leak-two: leak-two 30s infinite alternate ease-in-out;
+  --animate-leak-three: leak-three 35s infinite alternate ease-in-out;
+
+  @keyframes leak-one {
+    0% {
+      transform: translate(-10%, -10%) scale(1) rotate(0deg);
+      opacity: 0.15;
+    }
+    50% {
+      transform: translate(15%, 10%) scale(1.2) rotate(180deg);
+      opacity: 0.25;
+    }
+    100% {
+      transform: translate(-5%, 20%) scale(0.9) rotate(360deg);
+      opacity: 0.12;
+    }
+  }
+  @keyframes leak-two {
+    0% {
+      transform: translate(10%, 15%) scale(1.05) rotate(0deg);
+      opacity: 0.18;
+    }
+    50% {
+      transform: translate(-10%, -5%) scale(0.8) rotate(-120deg);
+      opacity: 0.12;
+    }
+    100% {
+      transform: translate(5%, -15%) scale(1.1) rotate(-240deg);
+      opacity: 0.22;
+    }
+  }
+  @keyframes leak-three {
+    0% {
+      transform: translate(-5%, 25%) scale(0.95) rotate(0deg);
+      opacity: 0.1;
+    }
+    50% {
+      transform: translate(15%, -10%) scale(1.05) rotate(90deg);
+      opacity: 0.18;
+    }
+    100% {
+      transform: translate(-10%, 5%) scale(0.9) rotate(180deg);
+      opacity: 0.1;
+    }
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+/* Lenis Smooth Scroll Configuration */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis-stopped {
+  overflow: hidden;
+}
+.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  min-height: 100svh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Mouse Cursor for Difference blend */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  -webkit-mix-blend-mode: difference;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Mobile & touch cursor fallback styling */
+@media (pointer: coarse) {
+  .cursor-dot {
+    display: none !important;
+  }
+  * {
+    cursor: auto !important;
+  }
+}
+
+.cursor-dot.hovered {
+  width: 90px;
+  height: 90px;
+}
+
+/* Brutalist Text Hover Links */
+.hover-link-underline {
+  position: relative;
+}
+.hover-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* -----------------------------------------
+   Light Mode Theme Overrides
+   ----------------------------------------- */
+html.light,
+html.light body {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.light .bg-black,
+html.light .bg-neutral-950 {
+  background-color: #ffffff !important;
+}
+
+html.light .bg-neutral-900\/50 {
+  background-color: rgba(245, 245, 245, 0.5) !important;
+}
+
+html.light .text-white {
+  color: #000000 !important;
+}
+
+html.light .text-neutral-300,
+html.light .text-neutral-400 {
+  color: #404040 !important;
+}
+
+html.light .text-neutral-500 {
+  color: #737373 !important;
+}
+
+html.light .text-neutral-600 {
+  color: #a3a3a3 !important;
+}
+
+html.light .border-neutral-800,
+html.light .border-neutral-900,
+html.light .border-white\/10 {
+  border-color: #e5e5e5 !important;
+}
+
+html.light .border-white {
+  border-color: #000000 !important;
+}
+
+html.light .hover\:bg-white:hover {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+html.light .group-hover\:text-black:group-hover {
+  color: #ffffff !important;
+}
+
+html.light .hover\:text-neutral-300:hover {
+  color: #404040 !important;
+}
+
+html.light .hover\:border-neutral-300:hover {
+  border-color: #404040 !important;
+}
+
+html.light .bg-black\/80 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+html.light .bg-black\/70 {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+}
+
+html.light .backdrop-blur-xl {
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+}
+
+/* Light leaks reduction for clean paper look */
+html.light .animate-leak-one,
+html.light .animate-leak-two,
+html.light .animate-leak-three {
+  opacity: 0.02 !important;
+}
+
+/* Scrollbar overrides */
+html.light ::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #e5e5e5;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
+
+/* Social grid invert rules */
+html.light .group:hover .group-hover\:text-black {
+  color: #ffffff !important;
+}
+html.light .group:hover .text-neutral-500 {
+  color: #a3a3a3 !important;
+}
+
+/* Hero CTA Custom Brutalist Buttons */
+.hero-btn-primary {
+  background-color: #ffffff;
+  color: #000000;
+}
+.hero-btn-primary:hover {
+  background-color: #e5e5e5;
+}
+.hero-btn-secondary {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+.hero-btn-secondary:hover {
+  border-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Light mode overrides for Hero CTA Buttons */
+html.light .hero-btn-primary {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+html.light .hero-btn-primary:hover {
+  background-color: #1a1a1a !important;
+}
+html.light .hero-btn-secondary {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+  color: #000000 !important;
+}
+html.light .hero-btn-secondary:hover {
+  border-color: #000000 !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+

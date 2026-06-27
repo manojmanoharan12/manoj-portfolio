@@ -1,0 +1,177 @@
+{
+  "personal": {
+    "name": "Manoj Manoharan",
+    "title": "Senior Graphic Designer",
+    "tagline": "Senior Graphic Designer with extensive experience in Brand Identity, Digital Design, and Motion Graphics.",
+    "about": "Merging storytelling and interactive experiences to elevate global campaigns. Most recently at Mindtickle, driving significant improvement in asset engagement and cutting turnaround time through rigorous brand consistency and motion design."
+  },
+  "work": [
+    {
+      "id": "mt-brand-bumper",
+      "title": "Mindtickle Motion Brand Bumper",
+      "description": "Premium corporate video bumper engineered to establish consistent motion design and sleek brand storytelling at corporate conferences.",
+      "type": "gif",
+      "image": "/src/assets/gifs/MT Bumper.mp4",
+      "tags": ["After Effects", "Motion Graphics", "Brand Identity"],
+      "impact": "Establishing Global Motion Identity"
+    },
+    {
+      "id": "colliers-storytelling",
+      "title": "Colliers Growth & Storytelling Layouts",
+      "description": "Custom vector layouts and editorial page designs displaying regional real estate insights and market developments.",
+      "type": "png",
+      "image": "/src/assets/pngs/Colliers 1.webp",
+      "tags": ["Figma", "Branding", "Editorial Design", "Infographics"],
+      "impact": "Elevating APAC Brand Presentation"
+    },
+    {
+      "id": "customer-focused-motion",
+      "title": "Customer-Focused Promo Motion Sequence",
+      "description": "Interactive promotional motion asset designed for digital advertising platforms to highlight customer success narratives.",
+      "type": "gif",
+      "image": "/src/assets/gifs/Post 5- Customer-Focused & Results-Driven.mp4",
+      "tags": ["After Effects", "Premiere", "Motion Design", "Video Ads"],
+      "impact": "Driving Digital Media Conversion"
+    },
+    {
+      "id": "ey-brand-campaigns",
+      "title": "EY Digital Advisory Brand Campaigns",
+      "description": "High-fidelity static and motion graphics crafted to promote technology consultation services across European banking sectors.",
+      "type": "png",
+      "image": "/src/assets/pngs/EY 1.webp",
+      "tags": ["Photoshop", "Illustrator", "Branding", "Asset Systems"],
+      "impact": "Fostering Advisory Authority"
+    },
+    {
+      "id": "kpmg-presentation-design",
+      "title": "KPMG Corporate Pitch Systems",
+      "description": "Monochrome visual templates and custom corporate slide designs designed to streamline international client advisory bids.",
+      "type": "png",
+      "image": "/src/assets/pngs/KPMG 1.webp",
+      "tags": ["InDesign", "Illustrator", "Presentation Design", "Layout Systems"],
+      "impact": "Enhancing Proposal Appeal"
+    },
+    {
+      "id": "creative-brand-identity",
+      "title": "Creative Brand Identity & Visual Assets",
+      "description": "Comprehensive design guidelines and bespoke typography systems mapping custom visual identities for SaaS startups.",
+      "type": "gif",
+      "image": "/src/assets/gifs/Gif 1.gif",
+      "tags": ["Figma", "Illustrator", "Color Systems", "Brand Manual"],
+      "impact": "Accelerating Startup Authority"
+    }
+  ],
+  "roadmap": [
+    {
+      "company": "Mindtickle",
+      "role": "Senior Graphic Designer",
+      "duration": "07/2025 - Present",
+      "description": "Designed and produced high-impact marketing assets across web, social, email, video, and print. Partnered with cross-functional growth teams to translate complex business goals into visually compelling campaign concepts.",
+      "achievements": [
+        "Strengthened brand storytelling and campaign performance",
+        "Led responsive UI design projects in Figma, creating interactive prototypes",
+        "Drove asset engagement rates based on A/B testing and analytics",
+        "Maintained global visual consistency using scalable design systems"
+      ],
+      "accentColor": "from-amber-400 to-yellow-600"
+    },
+    {
+      "company": "Colliers International",
+      "role": "Design Manager",
+      "duration": "01/2024 - 06/2025",
+      "description": "Directed end-to-end creative production for the APAC region. Managed microsite design and interactive storytelling projects using Figma, Ceros, and Infogram to enhance user experiences.",
+      "achievements": [
+        "Enhanced regional user engagement metrics",
+        "Oversaw video production and motion graphics from concept to post-production",
+        "Led a cross-border creative team of designers across India, Singapore, and Australia",
+        "Improved marketing asset delivery timelines"
+      ],
+      "accentColor": "from-blue-400 to-indigo-600"
+    },
+    {
+      "company": "Ernst & Young LLP",
+      "role": "Senior Associate",
+      "duration": "09/2021 - 01/2024",
+      "description": "Designed and delivered corporate marketing collateral, digital assets, and motion graphics tailored for EMEA banking and insurance clients.",
+      "achievements": [
+        "Collaborated daily with global design teams in the UK and Europe",
+        "Pioneered use of motion graphics in corporate storytelling, increasing client engagement",
+        "Built advanced After Effects, Illustrator, and Photoshop workflows for polished visuals",
+        "Ensured consistent cross-market brand delivery"
+      ],
+      "accentColor": "from-cyan-400 to-blue-600"
+    },
+    {
+      "company": "KPMG",
+      "role": "Senior Analyst",
+      "duration": "01/2020 - 09/2021",
+      "description": "Supported U.S. based clients with creative direction, storytelling, and visual production for client proposals and digital marketing campaigns.",
+      "achievements": [
+        "Designed presentation decks and branded materials that helped improve win rates in client proposals",
+        "Streamlined creative workflows and introduced new design templates",
+        "Reduced proposal layout turnaround times",
+        "Maintained high precision across brand proposals"
+      ],
+      "accentColor": "from-yellow-400 to-amber-600"
+    },
+    {
+      "company": "McKinsey and Company",
+      "role": "Graphic Designer",
+      "duration": "08/2017 - 01/2020",
+      "description": "Created visually persuasive PowerPoint presentations for global consulting teams, simplifying complex business ideas through clean layouts and custom graphics.",
+      "achievements": [
+        "Collaborated across time zones with international teams for on-time delivery",
+        "Contributed to a library of high-quality design assets that improved project delivery efficiency",
+        "Standardized charts and visual systems for executive-level presentations"
+      ],
+      "accentColor": "from-emerald-400 to-teal-600"
+    }
+  ],
+  "photography": [
+    {
+      "id": "photo-1",
+      "title": "Geometry & Light",
+      "image": "/src/assets/jpegs/pexels-manojmanohar-10472646.jpg"
+    },
+    {
+      "id": "photo-2",
+      "title": "Minimal Forms",
+      "image": "/src/assets/jpegs/pexels-manojmanohar-13792018.jpg"
+    },
+    {
+      "id": "photo-3",
+      "title": "Textured Shadows",
+      "image": "/src/assets/jpegs/pexels-manojmanohar-13792020.jpg"
+    },
+    {
+      "id": "photo-4",
+      "title": "Tonal Contrast",
+      "image": "/src/assets/jpegs/pexels-manojmanohar-13792021.jpg"
+    },
+    {
+      "id": "photo-5",
+      "title": "Abstract Space",
+      "image": "/src/assets/jpegs/pexels-manojmanohar-13792023.jpg"
+    },
+    {
+      "id": "photo-6",
+      "title": "Monolith Shadow",
+      "image": "/src/assets/jpegs/pexels-manojmanohar-13792024.jpg"
+    },
+    {
+      "id": "photo-7",
+      "title": "Organic Lines",
+      "image": "/src/assets/jpegs/pexels-manojmanohar-13792026.jpg"
+    },
+    {
+      "id": "photo-8",
+      "title": "Industrial Grain",
+      "image": "/src/assets/jpegs/pexels-manojmanohar-14784991.jpg"
+    },
+    {
+      "id": "photo-9",
+      "title": "Concrete Silhouette",
+      "image": "/src/assets/jpegs/pexels-manojmanohar-15003928.jpg"
+    }
+  ]
+}
