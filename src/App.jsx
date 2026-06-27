@@ -450,18 +450,24 @@ function App() {
             {/* Left Column (Typography) */}
             <div className="flex flex-col justify-center h-full text-left order-2 md:order-1 pr-4 md:pr-16 lg:pr-20 z-10">
               {/* Absolute Overlap Title Block */}
-              <div className="relative block w-full h-[24vw] min-h-[140px] sm:min-h-[180px] md:min-h-[160px] lg:min-h-[190px] mb-12 overflow-visible select-none">
-                <h1 className="absolute top-0 left-0 font-sans font-black text-[10vw] md:text-[5vw] lg:text-[4.5vw] tracking-tight leading-none text-white whitespace-nowrap">
-                  Shaping global
+              <div className="relative inline-block w-full">
+                {/* Base Text - The Grid/Flex constraints must be completely removed from this wrapper */}
+                <h1 className="text-white text-6xl sm:text-7xl md:text-8xl font-bold leading-none tracking-tight relative z-0">
+                  Shaping<br />global
                 </h1>
-                <span 
-                  className="absolute left-[5%] top-[55%] z-10 text-[11vw] md:text-[5.8vw] lg:text-[5vw] text-white whitespace-nowrap leading-none tracking-tight"
-                  style={{
-                    fontFamily: 'Signifier-Script'
+
+                {/* Overlapping Text - Strictly Absolute, tied to the bottom of the parent */}
+                <div 
+                  className="absolute z-10 text-white text-6xl sm:text-7xl md:text-8xl whitespace-nowrap"
+                  style={{ 
+                    fontFamily: 'Signifier-Script, serif', 
+                    bottom: '10%', 
+                    left: '15%',
+                    transform: 'translateY(35%)' 
                   }}
                 >
                   Narratives.
-                </span>
+                </div>
               </div>
 
               <p className="font-sans text-lg md:text-2xl text-neutral-400 font-light leading-relaxed max-w-xl mb-12">
