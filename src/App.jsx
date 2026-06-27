@@ -451,10 +451,19 @@ function App() {
             {/* Left Column (Typography) */}
             <div className="flex flex-col justify-center h-full text-left order-2 md:order-1 pr-4 md:pr-16 lg:pr-20 z-10">
               {/* Playfair Display massive display font title */}
-              <h1 className="font-serif text-[12vw] md:text-[6vw] lg:text-[5.2vw] font-bold tracking-tight leading-[0.8] mb-12 text-white break-normal select-none">
+              <h1 className="font-sans font-bold text-[12vw] md:text-[6vw] lg:text-[5.2vw] tracking-tight leading-[0.95] mb-12 text-white break-normal select-none relative whitespace-nowrap">
                 Shaping<br />
-                global<br />
-                <span className="font-sans font-black italic block mt-3 tracking-tighter">narratives.</span>
+                <span className="relative inline-block whitespace-nowrap">
+                  global
+                  <span 
+                    className="absolute left-[3.2ch] top-[-0.22em] font-[var(--font-script)] text-[#FFA500] tracking-normal normal-case z-20 text-[13.5vw] md:text-[7vw] lg:text-[6vw] pl-2 whitespace-nowrap"
+                    style={{
+                      filter: 'drop-shadow(0 0 5px #FFA500) drop-shadow(0 0 15px #FFA500) drop-shadow(0 0 30px #FFA500)'
+                    }}
+                  >
+                    Narratives.
+                  </span>
+                </span>
               </h1>
 
               <p className="font-sans text-lg md:text-2xl text-neutral-400 font-light leading-relaxed max-w-xl mb-12">
