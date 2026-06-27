@@ -384,7 +384,10 @@ function App() {
         )}
       </AnimatePresence>
 
-      <div className="relative min-h-screen text-white font-sans bg-black selection:bg-white selection:text-black overflow-hidden will-change-transform">
+      <div 
+        className="relative min-h-screen text-white font-sans bg-black selection:bg-white selection:text-black overflow-hidden"
+        style={{ willChange: 'transform, opacity' }}
+      >
       
       {/* 2. Glowing Atmospheric Background Layer */}
       <div className="fixed inset-0 bg-black -z-50 overflow-hidden pointer-events-none">
@@ -550,6 +553,7 @@ function App() {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 1000px' }}
               >
                 {paginatedWork.map((item, index) => {
                   const isHovered = hoveredWorkId === item.id
@@ -559,7 +563,7 @@ function App() {
                   return (
                     <motion.div
                       key={item.id}
-                      style={{ skewY }}
+                      style={{ skewY, willChange: 'transform, opacity' }}
                       onMouseEnter={() => {
                         setHoveredWorkId(item.id)
                         setCursorHovered(true)
@@ -577,30 +581,31 @@ function App() {
                         filter: isSibling ? 'blur(2px)' : 'blur(0px)',
                       }}
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                      className="flex flex-col h-full group cursor-none select-none relative will-change-transform"
+                      className="flex flex-col h-full group cursor-none select-none relative"
                     >
                       <motion.div 
                         layoutId={`work-media-${item.id}`}
-                        className="w-full aspect-[4/3] relative overflow-hidden rounded bg-neutral-950 border border-neutral-900 group-hover:border-neutral-800 transition-all duration-500 shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] will-change-transform"
+                        style={{ aspectRatio: '4/3', minHeight: '160px' }}
+                        className="w-full relative overflow-hidden rounded bg-neutral-900 border border-neutral-900 group-hover:border-neutral-800 transition-all duration-500 shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] bg-neutral-900"
                       >
                         {item.image.endsWith('.mp4') ? (
-                          <video
-                            src={item.image}
-                            playsInline
-                            autoPlay
-                            loop
-                            muted
-                            preload="auto"
-                            className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
-                          />
+                           <video
+                             src={item.image}
+                             playsInline
+                             autoPlay
+                             loop
+                             muted
+                             preload="auto"
+                             className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300 bg-neutral-900"
+                           />
                         ) : (
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            decoding="async"
-                            loading="lazy"
-                            className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
-                          />
+                           <img
+                             src={item.image}
+                             alt={item.title}
+                             decoding="async"
+                             loading="lazy"
+                             className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300 bg-neutral-900"
+                           />
                         )}
                       </motion.div>
 

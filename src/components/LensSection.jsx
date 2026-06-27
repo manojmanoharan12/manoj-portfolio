@@ -18,13 +18,16 @@ export default function LensSection({ jpegs, skewY, setCursorHovered, setSelecte
       </div>
 
       {/* Clean 3-Column Grid */}
-      <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 relative z-10">
+      <div 
+        className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 relative z-10"
+        style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 600px' }}
+      >
         {jpegs.map((photo, index) => (
           <motion.div
             key={photo.id}
             layoutId={`work-media-${photo.id}`}
-            style={{ skewY }}
-            className="relative overflow-hidden aspect-[3/4] rounded border border-neutral-900 bg-neutral-950 group cursor-none select-none will-change-transform"
+            style={{ skewY, willChange: 'transform, opacity', aspectRatio: '3/4', minHeight: '120px' }}
+            className="relative overflow-hidden rounded border border-neutral-900 bg-neutral-900 group cursor-none select-none"
             onMouseEnter={() => setCursorHovered(true)}
             onMouseLeave={() => setCursorHovered(false)}
             onClick={() => setSelectedWork(photo)}
@@ -34,7 +37,7 @@ export default function LensSection({ jpegs, skewY, setCursorHovered, setSelecte
               alt={photo.title}
               decoding="async"
               loading="lazy"
-              className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105 bg-neutral-900"
             />
             {/* Elegant hover overlay */}
             <div className="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end p-2 sm:p-4">
