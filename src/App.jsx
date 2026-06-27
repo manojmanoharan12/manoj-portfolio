@@ -449,22 +449,20 @@ function App() {
             
             {/* Left Column (Typography) */}
             <div className="flex flex-col justify-center h-full text-left order-2 md:order-1 pr-4 md:pr-16 lg:pr-20 z-10">
-              {/* Playfair Display massive display font title */}
-              <h1 className="font-sans font-black text-[12vw] md:text-[6vw] lg:text-[5.2vw] tracking-tight leading-[0.95] mb-12 text-white break-normal select-none relative overflow-visible whitespace-nowrap">
-                Shaping<br />
-                <span className="relative inline-block overflow-visible">
-                  global
-                  <span 
-                    className="absolute left-[3.2ch] bottom-[-0.12em] text-[#FFA500] tracking-tight normal-case z-10 text-[13.5vw] md:text-[7vw] lg:text-[6vw] pl-2 whitespace-nowrap leading-relaxed"
-                    style={{
-                      fontFamily: 'Signifier-Script',
-                      filter: 'drop-shadow(0 0 8px #FFA500) drop-shadow(0 0 20px #FFA500) drop-shadow(0 0 40px #FFA500) drop-shadow(0 0 80px #FFA500)'
-                    }}
-                  >
-                    Narratives.
-                  </span>
+              {/* Absolute Overlap Title Block */}
+              <div className="relative block w-full h-[24vw] min-h-[140px] sm:min-h-[180px] md:min-h-[160px] lg:min-h-[190px] mb-12 overflow-visible select-none">
+                <h1 className="absolute top-0 left-0 font-sans font-black text-[10vw] md:text-[5vw] lg:text-[4.5vw] tracking-tight leading-none text-white whitespace-nowrap">
+                  Shaping global
+                </h1>
+                <span 
+                  className="absolute left-[5%] top-[55%] z-10 text-[11vw] md:text-[5.8vw] lg:text-[5vw] text-white whitespace-nowrap leading-none tracking-tight"
+                  style={{
+                    fontFamily: 'Signifier-Script'
+                  }}
+                >
+                  Narratives.
                 </span>
-              </h1>
+              </div>
 
               <p className="font-sans text-lg md:text-2xl text-neutral-400 font-light leading-relaxed max-w-xl mb-12">
                 {personal.name}. <span className="text-white">Multidisciplinary designer merging motion graphics and interactive digital experiences to elevate high-impact campaigns.</span>
