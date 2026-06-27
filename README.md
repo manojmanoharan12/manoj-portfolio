@@ -14,3 +14,10 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the Oxlint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+
+## Note 
+
+Because this is a Vite-based project, it defaults to the standard Vite ports:
+
+Development Server (npm run dev): Defaults to 5173 (i.e., http://localhost:5173).
+Preview Server (npm run preview): Defaults to 4173 (i.e., http://localhost:4173).
