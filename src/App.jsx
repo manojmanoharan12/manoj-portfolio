@@ -8,7 +8,6 @@ import { SiBehance } from 'react-icons/si'
 
 const LensSection = lazy(() => import('./components/LensSection'))
 const SocialDirectory = lazy(() => import('./components/SocialDirectory'))
-import Preloader from './components/Preloader'
 import cvPdf from './assets/cv/Manoj Manoharan - SGD.pdf'
 
 // Dynamically import all photography JPEGs from the local folder
@@ -283,7 +282,6 @@ function App() {
 
   return (
     <>
-      <Preloader />
       {/* 1. Custom Liquid Difference Cursor */}
       <motion.div 
         className={`cursor-dot ${cursorHovered || cursorMode === 'close' ? 'hovered' : ''} flex items-center justify-center pointer-events-none fixed z-[9999] bg-white`}
