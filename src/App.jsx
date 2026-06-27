@@ -450,18 +450,11 @@ function App() {
             {/* Left Column (Typography) */}
             <div className="flex flex-col justify-center h-full text-left order-2 md:order-1 pr-4 md:pr-16 lg:pr-20 z-10">
               <div className="flex flex-col justify-center items-start mb-12">
-                {/* Base Text */}
-                <h1 className="text-white text-6xl sm:text-7xl md:text-8xl font-bold leading-none z-0">
-                  Shaping<br />global
+                <h1 className="text-white text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-tight sm:leading-none tracking-tight">
+                  Shaping<br />
+                  global<br />
+                  narratives.
                 </h1>
-                
-                {/* Overlapping Script Text */}
-                <h2 
-                  className="text-white text-6xl sm:text-7xl md:text-8xl whitespace-nowrap z-10 -mt-6 sm:-mt-8 md:-mt-12 ml-10 sm:ml-16 md:ml-24"
-                  style={{ fontFamily: 'Signifier-Script, serif' }}
-                >
-                  Narratives.
-                </h2>
               </div>
 
               <p className="font-sans text-lg md:text-2xl text-neutral-400 font-light leading-relaxed max-w-xl mb-12">
