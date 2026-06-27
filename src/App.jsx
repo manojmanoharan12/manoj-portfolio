@@ -500,7 +500,7 @@ function App() {
           </section>
 
           {/* Section divider */}
-          <div className="w-full h-[2px] min-h-[2px] bg-black dark:bg-white/20 block"></div>
+          <div className="w-full h-[2px] min-h-[2px] bg-black-mm dark:bg-white/20 block"></div>
 
           {/* Selected Work Section (Visual Masonry Grid) */}
           <section id="works" className="mt-16 md:mt-24 lg:mt-32 mb-40 md:mb-56">
@@ -525,8 +525,8 @@ function App() {
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
                     className={`hover-link-underline pb-1 tracking-wider transition-colors cursor-none ${activeTab === tab.id
-                        ? 'text-white'
-                        : 'text-neutral-500 hover:text-white'
+                      ? 'text-white'
+                      : 'text-neutral-500 hover:text-white'
                       }`}
                   >
                     {tab.label}
@@ -629,8 +629,8 @@ function App() {
                   onMouseEnter={() => setCursorHovered(true)}
                   onMouseLeave={() => setCursorHovered(false)}
                   className={`hover-link-underline pb-1 tracking-wider transition-all duration-300 cursor-none ${currentPage === 0
-                      ? 'opacity-25 pointer-events-none text-neutral-700'
-                      : 'text-white hover:text-neutral-300'
+                    ? 'opacity-25 pointer-events-none text-neutral-700'
+                    : 'text-white hover:text-neutral-300'
                     }`}
                 >
                   &larr; Prev
@@ -646,8 +646,8 @@ function App() {
                   onMouseEnter={() => setCursorHovered(true)}
                   onMouseLeave={() => setCursorHovered(false)}
                   className={`hover-link-underline pb-1 tracking-wider transition-all duration-300 cursor-none ${currentPage === totalPages - 1
-                      ? 'opacity-25 pointer-events-none text-neutral-700'
-                      : 'text-white hover:text-neutral-300'
+                    ? 'opacity-25 pointer-events-none text-neutral-700'
+                    : 'text-white hover:text-neutral-300'
                     }`}
                 >
                   Next &rarr;

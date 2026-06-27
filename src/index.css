@@ -27,38 +27,46 @@
       transform: translate(-10%, -10%) scale(1) rotate(0deg);
       opacity: 0.15;
     }
+
     50% {
       transform: translate(15%, 10%) scale(1.2) rotate(180deg);
       opacity: 0.25;
     }
+
     100% {
       transform: translate(-5%, 20%) scale(0.9) rotate(360deg);
       opacity: 0.12;
     }
   }
+
   @keyframes leak-two {
     0% {
       transform: translate(10%, 15%) scale(1.05) rotate(0deg);
       opacity: 0.18;
     }
+
     50% {
       transform: translate(-10%, -5%) scale(0.8) rotate(-120deg);
       opacity: 0.12;
     }
+
     100% {
       transform: translate(5%, -15%) scale(1.1) rotate(-240deg);
       opacity: 0.22;
     }
   }
+
   @keyframes leak-three {
     0% {
       transform: translate(-5%, 25%) scale(0.95) rotate(0deg);
       opacity: 0.1;
     }
+
     50% {
       transform: translate(15%, -10%) scale(1.05) rotate(90deg);
       opacity: 0.18;
     }
+
     100% {
       transform: translate(-10%, 5%) scale(0.9) rotate(180deg);
       opacity: 0.1;
@@ -71,29 +79,37 @@
   width: 4px;
   height: 4px;
 }
+
 ::-webkit-scrollbar-track {
   background: #000000;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #2a2a2a;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #ffffff;
 }
 
 /* Lenis Smooth Scroll Configuration */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
+
 .lenis-smooth {
   scroll-behavior: auto !important;
 }
+
 .lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
 }
+
 .lenis-stopped {
   overflow: hidden;
 }
+
 .lenis-scrolling iframe {
   pointer-events: none;
 }
@@ -121,9 +137,9 @@ body {
   transform: translate(-50%, -50%);
   mix-blend-mode: difference;
   -webkit-mix-blend-mode: difference;
-  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-              height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Mobile & touch cursor fallback styling */
@@ -131,6 +147,7 @@ body {
   .cursor-dot {
     display: none !important;
   }
+
   * {
     cursor: auto !important;
   }
@@ -145,6 +162,7 @@ body {
 .hover-link-underline {
   position: relative;
 }
+
 .hover-link-underline::after {
   content: '';
   position: absolute;
@@ -157,6 +175,7 @@ body {
   transform-origin: right;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .hover-link-underline:hover::after {
   transform: scaleX(1);
   transform-origin: left;
@@ -174,6 +193,10 @@ html.light body {
 html.light .bg-black,
 html.light .bg-neutral-950 {
   background-color: #ffffff !important;
+}
+
+html.light .bg-black-mm {
+  background-color: #939393 !important;
 }
 
 html.light .bg-neutral-900\/50 {
@@ -245,9 +268,11 @@ html.light .animate-leak-three {
 html.light ::-webkit-scrollbar-track {
   background: #ffffff;
 }
+
 html.light ::-webkit-scrollbar-thumb {
   background: #e5e5e5;
 }
+
 html.light ::-webkit-scrollbar-thumb:hover {
   background: #000000;
 }
@@ -256,6 +281,7 @@ html.light ::-webkit-scrollbar-thumb:hover {
 html.light .group:hover .group-hover\:text-black {
   color: #ffffff !important;
 }
+
 html.light .group:hover .text-neutral-500 {
   color: #a3a3a3 !important;
 }
@@ -265,13 +291,16 @@ html.light .group:hover .text-neutral-500 {
   background-color: #ffffff;
   color: #000000;
 }
+
 .hero-btn-primary:hover {
   background-color: #e5e5e5;
 }
+
 .hero-btn-secondary {
   border-color: rgba(255, 255, 255, 0.3);
   color: #ffffff;
 }
+
 .hero-btn-secondary:hover {
   border-color: #ffffff;
   background-color: rgba(255, 255, 255, 0.05);
@@ -282,15 +311,17 @@ html.light .hero-btn-primary {
   background-color: #000000 !important;
   color: #ffffff !important;
 }
+
 html.light .hero-btn-primary:hover {
   background-color: #1a1a1a !important;
 }
+
 html.light .hero-btn-secondary {
   border-color: rgba(0, 0, 0, 0.3) !important;
   color: #000000 !important;
 }
+
 html.light .hero-btn-secondary:hover {
   border-color: #000000 !important;
   background-color: rgba(0, 0, 0, 0.05) !important;
 }
-
