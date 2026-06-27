@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Signifier-Script';
+  src: url('./assets/fonts/Signifier-RegularItalic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Playball&display=swap');
 @import "tailwindcss";
 
@@ -9,7 +15,7 @@
   --font-sans: 'Satoshi-Bold', 'Satoshi', 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-serif: 'Satoshi-Bold', 'Satoshi', 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-display: 'Satoshi-Bold', 'Satoshi', 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-script: 'Playball', 'Signifier', 'Mrs Saint Delafield', cursive;
+  --font-script: 'Signifier-Script', 'Playball', 'Signifier', 'Mrs Saint Delafield', cursive;
 
   --animate-leak-one: leak-one 25s infinite alternate ease-in-out;
   --animate-leak-two: leak-two 30s infinite alternate ease-in-out;

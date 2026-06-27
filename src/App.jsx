@@ -8,6 +8,7 @@ import { SiBehance } from 'react-icons/si'
 
 const LensSection = lazy(() => import('./components/LensSection'))
 const SocialDirectory = lazy(() => import('./components/SocialDirectory'))
+import Preloader from './components/Preloader'
 import cvPdf from './assets/cv/Manoj Manoharan - SGD.pdf'
 
 // Dynamically import all photography JPEGs from the local folder
@@ -282,6 +283,7 @@ function App() {
 
   return (
     <>
+      <Preloader />
       {/* 1. Custom Liquid Difference Cursor */}
       <motion.div 
         className={`cursor-dot ${cursorHovered || cursorMode === 'close' ? 'hovered' : ''} flex items-center justify-center pointer-events-none fixed z-[9999] bg-white`}
@@ -384,10 +386,7 @@ function App() {
         )}
       </AnimatePresence>
 
-      <div 
-        className="relative min-h-screen text-white font-sans bg-black selection:bg-white selection:text-black overflow-hidden"
-        style={{ willChange: 'transform, opacity' }}
-      >
+      <div className="relative min-h-screen text-white font-sans bg-black selection:bg-white selection:text-black overflow-hidden will-change-transform">
       
       {/* 2. Glowing Atmospheric Background Layer */}
       <div className="fixed inset-0 bg-black -z-50 overflow-hidden pointer-events-none">
@@ -451,14 +450,15 @@ function App() {
             {/* Left Column (Typography) */}
             <div className="flex flex-col justify-center h-full text-left order-2 md:order-1 pr-4 md:pr-16 lg:pr-20 z-10">
               {/* Playfair Display massive display font title */}
-              <h1 className="font-sans font-bold text-[12vw] md:text-[6vw] lg:text-[5.2vw] tracking-tight leading-[0.95] mb-12 text-white break-normal select-none relative whitespace-nowrap">
+              <h1 className="font-sans font-black text-[12vw] md:text-[6vw] lg:text-[5.2vw] tracking-tight leading-[0.95] mb-12 text-white break-normal select-none relative overflow-visible whitespace-nowrap">
                 Shaping<br />
-                <span className="relative inline-block whitespace-nowrap">
+                <span className="relative inline-block overflow-visible">
                   global
                   <span 
-                    className="absolute left-[3.2ch] top-[-0.22em] font-[var(--font-script)] text-[#FFA500] tracking-normal normal-case z-20 text-[13.5vw] md:text-[7vw] lg:text-[6vw] pl-2 whitespace-nowrap"
+                    className="absolute left-[3.2ch] bottom-[-0.12em] text-[#FFA500] tracking-tight normal-case z-10 text-[13.5vw] md:text-[7vw] lg:text-[6vw] pl-2 whitespace-nowrap leading-relaxed"
                     style={{
-                      filter: 'drop-shadow(0 0 5px #FFA500) drop-shadow(0 0 15px #FFA500) drop-shadow(0 0 30px #FFA500)'
+                      fontFamily: 'Signifier-Script',
+                      filter: 'drop-shadow(0 0 8px #FFA500) drop-shadow(0 0 20px #FFA500) drop-shadow(0 0 40px #FFA500) drop-shadow(0 0 80px #FFA500)'
                     }}
                   >
                     Narratives.
@@ -562,7 +562,6 @@ function App() {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 1000px' }}
               >
                 {paginatedWork.map((item, index) => {
                   const isHovered = hoveredWorkId === item.id
@@ -572,7 +571,7 @@ function App() {
                   return (
                     <motion.div
                       key={item.id}
-                      style={{ skewY, willChange: 'transform, opacity' }}
+                      style={{ skewY }}
                       onMouseEnter={() => {
                         setHoveredWorkId(item.id)
                         setCursorHovered(true)
@@ -590,31 +589,30 @@ function App() {
                         filter: isSibling ? 'blur(2px)' : 'blur(0px)',
                       }}
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                      className="flex flex-col h-full group cursor-none select-none relative"
+                      className="flex flex-col h-full group cursor-none select-none relative will-change-transform"
                     >
                       <motion.div 
                         layoutId={`work-media-${item.id}`}
-                        style={{ aspectRatio: '4/3', minHeight: '160px' }}
-                        className="w-full relative overflow-hidden rounded bg-neutral-900 border border-neutral-900 group-hover:border-neutral-800 transition-all duration-500 shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] bg-neutral-900"
+                        className="w-full aspect-[4/3] relative overflow-hidden rounded bg-neutral-950 border border-neutral-900 group-hover:border-neutral-800 transition-all duration-500 shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] will-change-transform"
                       >
                         {item.image.endsWith('.mp4') ? (
-                           <video
-                             src={item.image}
-                             playsInline
-                             autoPlay
-                             loop
-                             muted
-                             preload="auto"
-                             className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300 bg-neutral-900"
-                           />
+                          <video
+                            src={item.image}
+                            playsInline
+                            autoPlay
+                            loop
+                            muted
+                            preload="auto"
+                            className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                          />
                         ) : (
-                           <img
-                             src={item.image}
-                             alt={item.title}
-                             decoding="async"
-                             loading="lazy"
-                             className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300 bg-neutral-900"
-                           />
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            decoding="async"
+                            loading="lazy"
+                            className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                          />
                         )}
                       </motion.div>
 
