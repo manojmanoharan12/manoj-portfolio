@@ -433,6 +433,9 @@ function App() {
   const [currentPage, setCurrentPage] = useState(0)
   const itemsPerPage = 9
 
+  const [photoPage, setPhotoPage] = useState(0)
+  const photosPerPage = 8
+
   // Custom cursor position and hover states using Framer Motion springs (liquid trailing physics)
   const cursorX = useMotionValue(-100)
   const cursorY = useMotionValue(-100)
@@ -526,6 +529,9 @@ function App() {
 
   const totalPages = Math.ceil(filteredWork.length / itemsPerPage)
   const paginatedWork = filteredWork.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
+
+  const totalPhotoPages = Math.ceil(jpegs.length / photosPerPage)
+  const paginatedPhotos = jpegs.slice(photoPage * photosPerPage, (photoPage + 1) * photosPerPage)
 
   return (
     <>
@@ -1048,22 +1054,34 @@ function App() {
           {/* 5. Lens / Visual Studies Section (Clean 3-Column Photography Grid with Lightbox) */}
           <Suspense fallback={<div className="h-48 w-full flex items-center justify-center font-mono text-xs text-neutral-600 dark:text-neutral-400">Loading visual studies...</div>}>
             <LensSection
-              jpegs={jpegs.slice(0, 8)}
+              jpegs={paginatedPhotos}
               skewY={skewY}
               setCursorHovered={setCursorHovered}
               setSelectedWork={setSelectedWork}
             />
           </Suspense>
-          <div className="flex justify-center mt-12 mb-20">
-            <button 
-              onClick={() => window.location.pathname = '/photography'}
-              className="px-8 py-3 border border-white/20 hover:border-white text-white font-mono uppercase tracking-widest text-sm transition-all cursor-none"
-              onMouseEnter={() => setCursorHovered(true)}
-              onMouseLeave={() => setCursorHovered(false)}
-            >
-              View Visual Archive
-            </button>
-          </div>
+          
+          {totalPhotoPages > 1 && (
+            <div className="flex justify-between items-center mt-6 mb-20 px-6 font-mono text-xs text-white">
+              <button 
+                disabled={photoPage === 0}
+                onClick={() => setPhotoPage(prev => Math.max(0, prev - 1))}
+                className={`pb-1 tracking-wider ${photoPage === 0 ? 'opacity-25' : 'hover:text-neutral-300'}`}
+              >
+                &larr; Prev
+              </button>
+              <span className="text-neutral-500">
+                Page {photoPage + 1 < 10 ? `0${photoPage + 1}` : photoPage + 1} of {totalPhotoPages < 10 ? `0${totalPhotoPages}` : totalPhotoPages}
+              </span>
+              <button 
+                disabled={photoPage === totalPhotoPages - 1}
+                onClick={() => setPhotoPage(prev => Math.min(totalPhotoPages - 1, prev + 1))}
+                className={`pb-1 tracking-wider ${photoPage === totalPhotoPages - 1 ? 'opacity-25' : 'hover:text-neutral-300'}`}
+              >
+                Next &rarr;
+              </button>
+            </div>
+          )}
 
           {/* 6. Contact & Socials Footer (Brutalist Grid Directory) */}
           <Suspense fallback={<div className="h-48 w-full flex items-center justify-center font-mono text-xs text-neutral-600 dark:text-neutral-400">Loading social directory...</div>}>

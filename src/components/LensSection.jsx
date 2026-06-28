@@ -6,7 +6,7 @@ export default function LensSection({ jpegs, skewY, setCursorHovered, setSelecte
   if (!jpegs || jpegs.length === 0) return null
 
   return (
-    <section id="darkroom" className="relative bg-black py-24 mb-20 md:mb-28 overflow-hidden">
+    <section id="darkroom" className="relative bg-black pt-12 pb-12 mb-10 md:mb-14 overflow-hidden">
       
       {/* Minimal elegant title */}
       <div className="mb-24">
@@ -14,7 +14,7 @@ export default function LensSection({ jpegs, skewY, setCursorHovered, setSelecte
           Visual Studies
         </span>
         <h2 className="font-sans text-3xl md:text-5xl font-bold text-white tracking-tight">
-          Photography Studies
+          Photography
         </h2>
       </div>
 
