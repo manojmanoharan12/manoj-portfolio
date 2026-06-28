@@ -11,6 +11,7 @@ import ZoomWrapper from './components/ZoomWrapper'
 import { GlobalImageModal } from './components/GlobalImageModal'
 
 const LensSection = lazy(() => import('./components/LensSection'))
+const PhotographyArchive = lazy(() => import('./components/PhotographyArchive'))
 const SocialDirectory = lazy(() => import('./components/SocialDirectory'))
 import Preloader from './components/Preloader'
 import BackToTop from './components/BackToTop'
@@ -633,6 +634,15 @@ function App() {
         )}
       </GlobalImageModal>
 
+      {window.location.pathname === '/photography' ? (
+        <Suspense fallback={<div className="min-h-screen bg-black flex items-center justify-center font-mono text-white">Loading archive...</div>}>
+          <PhotographyArchive 
+            jpegs={jpegs} 
+            setCursorHovered={setCursorHovered} 
+            setSelectedWork={setSelectedWork} 
+          />
+        </Suspense>
+      ) : (
       <div className="relative min-h-screen text-white font-sans bg-black selection:bg-white selection:text-black overflow-hidden will-change-transform">
 
         {/* 2. Glowing Atmospheric Background Layer */}
@@ -1038,12 +1048,22 @@ function App() {
           {/* 5. Lens / Visual Studies Section (Clean 3-Column Photography Grid with Lightbox) */}
           <Suspense fallback={<div className="h-48 w-full flex items-center justify-center font-mono text-xs text-neutral-600 dark:text-neutral-400">Loading visual studies...</div>}>
             <LensSection
-              jpegs={jpegs}
+              jpegs={jpegs.slice(0, 8)}
               skewY={skewY}
               setCursorHovered={setCursorHovered}
               setSelectedWork={setSelectedWork}
             />
           </Suspense>
+          <div className="flex justify-center mt-12 mb-20">
+            <button 
+              onClick={() => window.location.pathname = '/photography'}
+              className="px-8 py-3 border border-white/20 hover:border-white text-white font-mono uppercase tracking-widest text-sm transition-all cursor-none"
+              onMouseEnter={() => setCursorHovered(true)}
+              onMouseLeave={() => setCursorHovered(false)}
+            >
+              View Visual Archive
+            </button>
+          </div>
 
           {/* 6. Contact & Socials Footer (Brutalist Grid Directory) */}
           <Suspense fallback={<div className="h-48 w-full flex items-center justify-center font-mono text-xs text-neutral-600 dark:text-neutral-400">Loading social directory...</div>}>
@@ -1065,6 +1085,7 @@ function App() {
         </div>
 
       </div>
+      )}
       <BackToTop />
     </>
   )
