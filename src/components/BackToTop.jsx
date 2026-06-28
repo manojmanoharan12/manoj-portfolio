@@ -36,6 +36,7 @@ export default function BackToTop() {
 
         {/* Icon */}
         <svg 
+          aria-hidden="true"
           className="absolute w-4 right-2 top-1/2 -translate-y-1/2 -rotate-45 transition-transform duration-200 ease-out group-hover:-rotate-90" 
           fill="none" stroke="currentColor" viewBox="0 0 24 24"
         >

@@ -6,11 +6,12 @@ export default function LensSection({ jpegs, skewY, setCursorHovered, setSelecte
   if (!jpegs || jpegs.length === 0) return null
 
   return (
-    <section id="darkroom" className="relative bg-black pt-12 pb-12 mb-10 md:mb-14 overflow-hidden">
+    <section id="darkroom" className="relative bg-black pt-12 pb-12 mb-10 md:mb-14">
       
       {/* Minimal elegant title */}
-      <div className="mb-24">
-        <span className="font-sans text-neutral-600 dark:text-neutral-400 text-xs tracking-wider block mb-3">
+      <div className="sticky top-0 z-50 w-full py-6 mb-24 flex flex-col justify-end">
+        <div className="absolute inset-y-0 w-[100vw] left-1/2 -translate-x-1/2 bg-transparent backdrop-blur-md border-b border-black/10 dark:border-white/10 -z-10 pointer-events-none" />
+        <span className="font-sans text-neutral-400 text-xs tracking-wider block mb-3">
           Visual Studies
         </span>
         <h2 className="font-sans text-3xl md:text-5xl font-bold text-white tracking-tight">
@@ -34,6 +35,8 @@ export default function LensSection({ jpegs, skewY, setCursorHovered, setSelecte
               alt={photo.title}
               decoding="async"
               loading="lazy"
+              width="800"
+              height="1200"
               className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
             />
             {/* Elegant hover overlay */}

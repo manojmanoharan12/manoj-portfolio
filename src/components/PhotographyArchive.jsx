@@ -35,6 +35,8 @@ export default function PhotographyArchive({ jpegs, setCursorHovered, setSelecte
               alt={photo.title}
               decoding="async"
               loading="lazy"
+              width="800"
+              height="1200"
               className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end p-2 sm:p-4">

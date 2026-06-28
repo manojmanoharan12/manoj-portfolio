@@ -8,7 +8,8 @@ import heroPortrait from './assets/headshot/IMG_4669_clean.png'
 import { SiBehance } from 'react-icons/si'
 import { TbBrandFigma, TbBrandAdobeIllustrator, TbBrandAdobeAfterEffect, TbBrandAdobePremier, TbBrandAdobePhotoshop, TbBrandAdobeIndesign } from "react-icons/tb"
 import ZoomWrapper from './components/ZoomWrapper'
-import { GlobalImageModal } from './components/GlobalImageModal'
+const GlobalImageModal = lazy(() => import('./components/GlobalImageModal').then(module => ({ default: module.GlobalImageModal })))
+const ProjectDetailPanel = lazy(() => import('./components/ProjectDetailPanel'))
 
 const LensSection = lazy(() => import('./components/LensSection'))
 const PhotographyArchive = lazy(() => import('./components/PhotographyArchive'))
@@ -306,111 +307,59 @@ const socialLinks = [
     label: "Adobe Stock",
     url: "https://stock.adobe.com/in/contributor/210907448/Manoj",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M15.1 2H24v20L15.1 2zM8.9 2H0v20L8.9 2zM12 9.4L17.6 22h-3.8l-1.6-4H8.1L12 9.4z" /></svg>
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M15.1 2H24v20L15.1 2zM8.9 2H0v20L8.9 2zM12 9.4L17.6 22h-3.8l-1.6-4H8.1L12 9.4z" /></svg>
     )
   },
   {
     label: "Instagram",
     url: "https://www.instagram.com/manoj__manohar/",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" /></svg>
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" /></svg>
     )
   },
   {
     label: "Pexels",
     url: "https://www.pexels.com/@manojmanohar/",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M1.216 0C.544 0 0 .544 0 1.216v21.568C0 23.456.544 24 1.216 24h21.568c.672 0 1.216-.544 1.216-1.216V1.216C24 .544 23.456 0 22.784 0H1.216zM6.92 5.86h5.811c3.559 0 5.4 1.986 5.4 4.887 0 2.946-2.072 5.086-5.4 5.086h-2.12v2.307H6.92V5.86zm3.69 2.871v4.22h1.614c1.879 0 2.257-1.36 2.257-2.11 0-.75-.378-2.11-2.257-2.11H10.61z" /></svg>
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M1.216 0C.544 0 0 .544 0 1.216v21.568C0 23.456.544 24 1.216 24h21.568c.672 0 1.216-.544 1.216-1.216V1.216C24 .544 23.456 0 22.784 0H1.216zM6.92 5.86h5.811c3.559 0 5.4 1.986 5.4 4.887 0 2.946-2.072 5.086-5.4 5.086h-2.12v2.307H6.92V5.86zm3.69 2.871v4.22h1.614c1.879 0 2.257-1.36 2.257-2.11 0-.75-.378-2.11-2.257-2.11H10.61z" /></svg>
     )
   },
   {
     label: "Email",
     url: "mailto:manojvickie@gmail.com",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M22 4L12 13 2 4" /></svg>
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M22 4L12 13 2 4" /></svg>
     )
   },
   {
     label: "LinkedIn",
     url: "https://www.linkedin.com/in/manojmano/",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
     )
   },
   {
     label: "Behance",
     url: "https://www.behance.net/manojmanoharan",
-    icon: <SiBehance className="w-5 h-5" />
+    icon: <SiBehance aria-hidden="true" className="w-5 h-5" />
   },
   {
     label: "WhatsApp",
     url: "https://wa.me/+917092052357",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M11.42 0H11.4C5.11 0 0 5.11 0 11.4c0 1.99.52 3.86 1.44 5.48L0 22.84l6.14-1.42c1.58.87 3.39 1.36 5.28 1.36h.02c6.29 0 11.4-5.11 11.4-11.4C22.84 5.11 17.73 0 11.42 0zm0 20.89c-1.68 0-3.32-.45-4.75-1.3l-.34-.2-3.53.82.84-3.44-.22-.35A9.45 9.45 0 011.96 11.4c0-5.24 4.26-9.5 9.5-9.5 5.24 0 9.5 4.26 9.5 9.5 0 5.24-4.26 9.5-9.5 9.5zm5.22-7.14c-.29-.14-1.7-.84-1.96-.94-.26-.09-.45-.14-.64.14-.19.29-.74.94-.91 1.13-.17.19-.34.21-.63.07-.29-.14-1.21-.45-2.31-1.43-.85-.76-1.42-1.7-1.59-1.99-.17-.29-.02-.45.12-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49-.17 0-.36-.01-.55-.01-.19 0-.5.07-.76.36-.26.29-.98.96-.98 2.34 0 1.38 1 2.71 1.14 2.9.14.19 1.98 3.02 4.79 4.24.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.53-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z" /></svg>
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M11.42 0H11.4C5.11 0 0 5.11 0 11.4c0 1.99.52 3.86 1.44 5.48L0 22.84l6.14-1.42c1.58.87 3.39 1.36 5.28 1.36h.02c6.29 0 11.4-5.11 11.4-11.4C22.84 5.11 17.73 0 11.42 0zm0 20.89c-1.68 0-3.32-.45-4.75-1.3l-.34-.2-3.53.82.84-3.44-.22-.35A9.45 9.45 0 011.96 11.4c0-5.24 4.26-9.5 9.5-9.5 5.24 0 9.5 4.26 9.5 9.5 0 5.24-4.26 9.5-9.5 9.5zm5.22-7.14c-.29-.14-1.7-.84-1.96-.94-.26-.09-.45-.14-.64.14-.19.29-.74.94-.91 1.13-.17.19-.34.21-.63.07-.29-.14-1.21-.45-2.31-1.43-.85-.76-1.42-1.7-1.59-1.99-.17-.29-.02-.45.12-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49-.17 0-.36-.01-.55-.01-.19 0-.5.07-.76.36-.26.29-.98.96-.98 2.34 0 1.38 1 2.71 1.14 2.9.14.19 1.98 3.02 4.79 4.24.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.53-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z" /></svg>
     )
   },
   {
     label: "Phone",
     url: "tel:+917092052357",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" /></svg>
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" /></svg>
     )
   }
 ]
 
-const ProjectDetailPanel = ({ project }) => {
-  return (
-    <div className="flex flex-col p-8 backdrop-blur-lg bg-white/90 dark:bg-black/90 text-black dark:text-white rounded-xl border border-black/10 dark:border-white/10 shadow-2xl text-left pointer-events-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Left Side: Labels & Values */}
-        <div className="space-y-4">
-          <div>
-            <h4 className="text-[10px] uppercase tracking-widest text-gray-500 font-mono">Company</h4>
-            <p className="text-sm font-semibold">{project.company}</p>
-          </div>
-          <div>
-            <h4 className="text-[10px] uppercase tracking-widest text-gray-500 font-mono">Deliverable</h4>
-            <p className="text-sm font-semibold">{project.deliverable}</p>
-          </div>
-          <div>
-            <h4 className="text-[10px] uppercase tracking-widest text-gray-500 font-mono">Business Goal</h4>
-            <p className="text-sm italic text-gray-400">{project.goal}</p>
-          </div>
-        </div>
-        
-        {/* Right Side: Tool Logos */}
-        <div className="flex flex-col h-full">
-          <div>
-            <h4 className="text-[10px] uppercase tracking-widest text-gray-500 font-mono mb-4">Tools</h4>
-            <div className="flex gap-3">
-              {project.tools.map((tool, idx) => (
-                <div key={tool.name || idx} className="w-6 h-6 flex items-center justify-center">
-                  {tool.iconPath ? (
-                    <img 
-                      src={tool.iconPath} 
-                      alt={tool.name} 
-                      className="w-full h-full object-contain" 
-                      style={{ aspectRatio: '1 / 1' }} 
-                    />
-                  ) : (
-                    <span className="text-[10px] font-mono border border-black/10 dark:border-white/10 px-1.5 py-0.5 rounded uppercase tracking-widest">{tool.name}</span>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Title */}
-      <div className="mt-8 pt-4 border-t border-black/10 dark:border-white/10">
-        <h3 className="font-serif text-lg font-bold tracking-tight">
-          {project.title}
-        </h3>
-      </div>
-    </div>
-  );
-};
 
 function App() {
   const { personal, roadmap } = portfolioData
@@ -428,6 +377,17 @@ function App() {
       document.documentElement.classList.add('dark');    // Apply dark mode class
     }
   }, [theme])
+
+  const [reducedMotion, setReducedMotion] = useState(false)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setReducedMotion(mediaQuery.matches)
+    
+    const handler = () => setReducedMotion(mediaQuery.matches)
+    mediaQuery.addEventListener('change', handler)
+    return () => mediaQuery.removeEventListener('change', handler)
+  }, [])
 
   // Pagination states
   const [currentPage, setCurrentPage] = useState(0)
@@ -461,13 +421,20 @@ function App() {
 
   // Initialize Lenis smooth scroll
   useEffect(() => {
+    // Ensure the page always starts at the top after a refresh
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      lerp: 0.08,
-      smoothWheel: true,
-      syncTouch: true,
-      touchMultiplier: 1.5,
+      direction: 'vertical',
+      gestureDirection: 'vertical',
+      smooth: true,
+      mouseMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
     })
 
     lenisRef.current = lenis
@@ -536,109 +503,123 @@ function App() {
   return (
     <>
       <Preloader />
-      {/* 1. Custom Liquid Difference Cursor */}
-      <motion.div
-        className={`cursor-dot ${cursorHovered || cursorMode === 'close' ? 'hovered' : ''} flex items-center justify-center pointer-events-none fixed z-[9999] bg-white`}
-        style={{
-          x: cursorXSpring,
-          y: cursorYSpring,
-          translateX: '-50%',
-          translateY: '-50%'
-        }}
-      >
-        <AnimatePresence>
-          {cursorMode === 'close' && (
-            <motion.span
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.2 }}
-              className="text-[11px] font-mono tracking-widest text-black font-black uppercase pointer-events-none select-none"
-            >
-              Close
-            </motion.span>
-          )}
-        </AnimatePresence>
-      </motion.div>
+      {/* 1. Custom Liquid Difference Cursor (Respects Reduced Motion) */}
+      {!reducedMotion && (
+        <motion.div
+          className={`cursor-dot ${cursorHovered || cursorMode === 'close' ? 'hovered' : ''} flex items-center justify-center pointer-events-none fixed z-[9999] bg-white`}
+          style={{
+            x: cursorXSpring,
+            y: cursorYSpring,
+            translateX: '-50%',
+            translateY: '-50%'
+          }}
+        >
+          <AnimatePresence>
+            {cursorMode === 'close' && (
+              <motion.span
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.2 }}
+                className="text-[11px] font-mono tracking-widest text-black font-black uppercase pointer-events-none select-none"
+              >
+                Close
+              </motion.span>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      )}
+      {reducedMotion && (
+        <style>{`
+          * { cursor: auto !important; }
+        `}</style>
+      )}
 
       {/* 7. Cinematic Lightbox Modal */}
-      <GlobalImageModal
-        isOpen={!!selectedWork}
-        onClose={() => {
-          setSelectedWork(null)
-          setCursorMode('default')
-          setCursorHovered(false)
-        }}
-        onMouseEnter={() => {
-          setCursorMode('close')
-          setCursorHovered(true)
-        }}
-        onMouseLeave={() => {
-          setCursorMode('default')
-          setCursorHovered(false)
-        }}
-      >
-        {selectedWork && (
-          selectedWork.id.startsWith('photo-') ? (
-            <div 
-              className="relative flex flex-col items-center bg-black w-full"
-              onMouseEnter={() => {
-                setCursorMode('default')
-                setCursorHovered(false)
-              }}
-              onMouseLeave={() => {
-                setCursorMode('close')
-                setCursorHovered(true)
-              }}
-            >
-              <img 
-                src={selectedWork.image} 
-                alt={selectedWork.title} 
-                className="w-full h-auto max-h-[70vh] object-contain bg-black" 
-              />
-              <div className="p-6 text-center text-white w-full bg-neutral-900 border-t border-neutral-800">
-                <h4 className="text-white font-semibold text-lg mb-1">
-                  {selectedWork.title}
-                </h4>
-                <p className="text-gray-400 text-sm">
-                  Photography &bull; Visual studies
-                </p>
-              </div>
-            </div>
-          ) : (
-            <div 
-              className="relative flex flex-col gap-0 bg-black w-full"
-              onMouseEnter={() => {
-                setCursorMode('default')
-                setCursorHovered(false)
-              }}
-              onMouseLeave={() => {
-                setCursorMode('close')
-                setCursorHovered(true)
-              }}
-            >
-              {selectedWork.image.endsWith('.mp4') ? (
-                <video
-                  src={selectedWork.image}
-                  playsInline
-                  autoPlay
-                  loop
-                  muted
-                  preload="auto"
-                  className="block align-bottom border-none w-full h-auto max-h-[60vh] object-contain bg-black"
-                />
-              ) : (
+      <Suspense fallback={null}>
+        <GlobalImageModal
+          isOpen={!!selectedWork}
+          onClose={() => {
+            setSelectedWork(null)
+            setCursorMode('default')
+            setCursorHovered(false)
+          }}
+          onMouseEnter={() => {
+            setCursorMode('close')
+            setCursorHovered(true)
+          }}
+          onMouseLeave={() => {
+            setCursorMode('default')
+            setCursorHovered(false)
+          }}
+        >
+          {selectedWork && (
+            selectedWork.id.startsWith('photo-') ? (
+              <div 
+                className="relative flex flex-col items-center bg-black w-full"
+                onMouseEnter={() => {
+                  setCursorMode('default')
+                  setCursorHovered(false)
+                }}
+                onMouseLeave={() => {
+                  setCursorMode('close')
+                  setCursorHovered(true)
+                }}
+              >
                 <img 
                   src={selectedWork.image} 
                   alt={selectedWork.title} 
-                  className="block align-bottom border-none w-full h-auto max-h-[60vh] object-contain bg-black" 
+                  className="w-full h-auto max-h-[70vh] object-contain bg-black" 
                 />
-              )}
-              <ProjectDetailPanel project={selectedWork} />
-            </div>
-          )
-        )}
-      </GlobalImageModal>
+                <div className="p-6 text-center text-white w-full bg-neutral-900 border-t border-neutral-800">
+                  <h4 className="text-white font-semibold text-lg mb-1">
+                    {selectedWork.title}
+                  </h4>
+                  <p className="text-gray-400 text-sm">
+                    Photography &bull; Visual studies
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div 
+                className="relative flex flex-col gap-0 bg-black w-full"
+                onMouseEnter={() => {
+                  setCursorMode('default')
+                  setCursorHovered(false)
+                }}
+                onMouseLeave={() => {
+                  setCursorMode('close')
+                  setCursorHovered(true)
+                }}
+              >
+                {selectedWork.image.endsWith('.mp4') || selectedWork.image.endsWith('.MP4') ? (
+                  <video
+                    src={selectedWork.image}
+                    playsInline
+                    autoPlay
+                    loop
+                    muted
+                    preload="metadata"
+                    width="1200"
+                    height="800"
+                    className="block align-bottom border-none w-full h-auto max-h-[60vh] object-contain bg-black"
+                  />
+                ) : (
+                  <img 
+                    src={selectedWork.image} 
+                    alt={selectedWork.title} 
+                    loading="lazy"
+                    width="1200"
+                    height="800"
+                    className="block align-bottom border-none w-full h-auto max-h-[60vh] object-contain bg-black" 
+                  />
+                )}
+                <ProjectDetailPanel project={selectedWork} />
+              </div>
+            )
+          )}
+        </GlobalImageModal>
+      </Suspense>
 
       {window.location.pathname === '/photography' ? (
         <Suspense fallback={<div className="min-h-screen bg-black flex items-center justify-center font-mono text-white">Loading archive...</div>}>
@@ -649,7 +630,7 @@ function App() {
           />
         </Suspense>
       ) : (
-      <div className="relative min-h-screen text-white font-sans bg-black selection:bg-white selection:text-black overflow-hidden will-change-transform">
+      <div className="relative min-h-screen w-full text-white font-sans bg-black selection:bg-white selection:text-black will-change-transform">
 
         {/* 2. Glowing Atmospheric Background Layer */}
         <div className="fixed inset-0 bg-black -z-50 overflow-hidden pointer-events-none">
@@ -680,7 +661,7 @@ function App() {
 
         {/* 3. SVG Grain Layer Overlay */}
         <div className="pointer-events-none fixed inset-0 z-40 w-full h-full opacity-[0.03] mix-blend-normal">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <svg aria-hidden="true" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <filter id="noiseFilter">
               <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch" />
               <feColorMatrix type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.8 0" />
@@ -754,6 +735,10 @@ function App() {
                   src={heroPortrait}
                   alt="Manoj Manoharan"
                   decoding="async"
+                  loading="eager"
+                  fetchPriority="high"
+                  width="800"
+                  height="1000"
                   className={`block object-cover object-bottom h-full m-0 relative z-0 pointer-events-none select-none transition-all duration-500 ${theme === 'dark' ? 'grayscale' : 'grayscale-0'
                     }`}
                 />
@@ -767,7 +752,8 @@ function App() {
 
           {/* Selected Work Section (Visual Masonry Grid) */}
           <section id="works" className="mt-16 md:mt-24 lg:mt-32 mb-40 md:mb-56">
-            <div className="sticky top-0 z-40 bg-transparent backdrop-blur-md border-b border-black/10 dark:border-white/10 py-4 flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+            <div className="sticky top-0 z-40 py-4 flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+              <div className="absolute inset-y-0 w-[100vw] left-1/2 -translate-x-1/2 bg-transparent backdrop-blur-md border-b border-black/10 dark:border-white/10 -z-10 pointer-events-none" />
               <div>
                 <span className="font-sans text-neutral-600 dark:text-neutral-400 text-xs font-semibold tracking-widest block mb-3">
                   Selected portfolios
@@ -794,7 +780,7 @@ function App() {
                 </select>
                 {/* Custom Dropdown Arrow */}
                 <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-white">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg aria-hidden="true" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="1.5" d="M19 9l-7 7-7-7"></path>
                   </svg>
                 </div>
@@ -836,7 +822,7 @@ function App() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className={`grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 overflow-hidden md:overflow-visible max-h-[calc(2*50vw+1.5rem)] md:max-h-none transition-all duration-500 ${
+                  className={`grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 transition-all duration-500 ${
                     selectedWork && !selectedWork.id.startsWith('photo-') ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'
                   }`}
                 >
@@ -857,14 +843,16 @@ function App() {
                         <div
                           className="w-full aspect-[3/4] md:aspect-[4/3] relative overflow-hidden rounded bg-neutral-950 border border-neutral-900 group-hover:border-neutral-800 transition-all duration-500 shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] will-change-transform"
                         >
-                           {item.image.endsWith('.mp4') ? (
+                           {item.image.endsWith('.mp4') || item.image.endsWith('.MP4') ? (
                             <video
                               src={item.image}
                               playsInline
                               autoPlay
                               loop
                               muted
-                              preload="auto"
+                              preload="metadata"
+                              width="800"
+                              height="600"
                               className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 ease-out group-hover:scale-105"
                             />
                           ) : (
@@ -873,6 +861,8 @@ function App() {
                               alt={item.title}
                               decoding="async"
                               loading="lazy"
+                              width="800"
+                              height="600"
                               className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 ease-out group-hover:scale-105"
                             />
                           )}
@@ -883,19 +873,19 @@ function App() {
                             <h3 className="font-serif text-lg font-bold text-white tracking-tight group-hover:text-neutral-200 transition-colors line-clamp-2">
                               {item.title}
                             </h3>
-                            <span className="font-mono text-[11px] text-neutral-600 dark:text-neutral-400 tracking-wider shrink-0">
+                            <span className="font-mono text-xs text-neutral-400 tracking-wider shrink-0">
                               {item.impact}
                             </span>
                           </div>
-                          <div className="hidden md:flex mt-auto justify-between items-center text-xs font-mono text-neutral-600 dark:text-neutral-400 pt-2 border-t border-neutral-900/50">
+                          <div className="hidden md:flex mt-auto justify-between items-center text-xs font-mono text-neutral-400 pt-2 border-t border-neutral-900/50">
                             <span>{item.subtitle}</span>
-                            <span className="text-neutral-500 dark:text-neutral-500">
+                            <span className="text-neutral-400">
                               {(currentPage * itemsPerPage + index + 1) < 10
                                 ? `0${currentPage * itemsPerPage + index + 1}`
                                 : currentPage * itemsPerPage + index + 1}
                             </span>
                           </div>
-                          <span className="text-[11px] md:text-xs uppercase tracking-widest font-bold mt-2 md:mt-4 block text-neutral-500 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white transition-colors duration-300">
+                          <span className="text-xs uppercase tracking-widest font-bold mt-2 md:mt-4 block text-neutral-400 group-hover:text-black dark:group-hover:text-white transition-colors duration-300">
                             {item.image.endsWith('.mp4') ? 'Play ▶' : 'View ↗'}
                           </span>
                         </div>
@@ -945,7 +935,8 @@ function App() {
 
           {/* Experience Section */}
           <section id="roadmap" className="relative pt-20 mb-40 md:mb-56">
-            <div className="sticky top-0 z-50 bg-transparent backdrop-blur-md border-b border-black/10 dark:border-white/10 w-full py-6 mb-24 flex flex-col justify-end">
+            <div className="sticky top-0 z-50 w-full py-6 mb-24 flex flex-col justify-end">
+              <div className="absolute inset-y-0 w-[100vw] left-1/2 -translate-x-1/2 bg-transparent backdrop-blur-md border-b border-black/10 dark:border-white/10 -z-10 pointer-events-none" />
               <span className="font-sans text-neutral-600 dark:text-neutral-400 text-xs font-semibold tracking-widest block mb-3">
                 Professional trajectory
               </span>
@@ -1006,10 +997,10 @@ function App() {
                     className="border-b border-neutral-900 py-10 md:py-14 cursor-none select-none scroll-mt-24 md:scroll-mt-32"
                   >
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                      <h3 className="font-serif text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter text-neutral-500 hover:text-white transition-colors duration-300 leading-none">
+                      <h3 className="font-serif text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter text-neutral-400 hover:text-white transition-colors duration-300 leading-none">
                         {item.company}
                       </h3>
-                      <span className="font-mono text-sm text-neutral-600 dark:text-neutral-400 tracking-wider">{item.duration}</span>
+                      <span className="font-mono text-sm text-neutral-400 tracking-wider">{item.duration}</span>
                     </div>
 
                     {/* Sharp Details Reveal on Click */}
@@ -1020,18 +1011,18 @@ function App() {
                     >
                       <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
                         <div className="md:col-span-4">
-                          <span className="font-mono text-sm text-neutral-600 dark:text-neutral-400 tracking-wider block mb-1">Role Title</span>
+                          <span className="font-mono text-sm text-neutral-400 tracking-wider block mb-1">Role Title</span>
                           <span className="text-white text-lg font-serif font-bold italic">{item.role}</span>
                         </div>
 
                         <div className="md:col-span-8">
-                          <span className="font-mono text-sm text-neutral-600 dark:text-neutral-400 tracking-wider block mb-1">Focus & Responsibility</span>
+                          <span className="font-mono text-sm text-neutral-400 tracking-wider block mb-1">Focus & Responsibility</span>
                           <p className="text-neutral-400 text-sm font-light leading-relaxed max-w-2xl mb-6">
                             {item.description}
                           </p>
 
                           <div className="space-y-2">
-                            <span className="font-mono text-sm text-neutral-600 dark:text-neutral-400 uppercase tracking-widest block mb-1">Key Outcomes</span>
+                            <span className="font-mono text-sm text-neutral-400 uppercase tracking-widest block mb-1">Key Outcomes</span>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                               {item.achievements.map((bullet, i) => (
                                 <div key={i} className="flex items-start gap-2.5 text-xs text-neutral-300 font-light">
@@ -1070,7 +1061,7 @@ function App() {
               >
                 &larr; Prev
               </button>
-              <span className="text-neutral-500">
+              <span className="text-neutral-400">
                 Page {photoPage + 1 < 10 ? `0${photoPage + 1}` : photoPage + 1} of {totalPhotoPages < 10 ? `0${totalPhotoPages}` : totalPhotoPages}
               </span>
               <button 
