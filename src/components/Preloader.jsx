@@ -6,9 +6,9 @@ export default function Preloader() {
   const [isComplete, setIsComplete] = useState(false)
 
   useEffect(() => {
-    // Tween counter state from 0 to 100 over exactly 5 seconds
+    // Tween counter state from 0 to 100 over exactly 1.8 seconds
     const controls = animate(0, 100, {
-      duration: 5,
+      duration: 1.8,
       ease: "linear",
       onUpdate: (value) => {
         setProgress(Math.floor(value))
@@ -40,12 +40,12 @@ export default function Preloader() {
 
             {/* Sleek Minimal Progress Bar Container */}
             <div className="w-64 h-[2px] bg-white/20 mt-6 overflow-hidden rounded-full">
-              {/* Active Indicator - Animated over exactly 5 seconds */}
+              {/* Active Indicator - Animated over exactly 1.8 seconds */}
               <motion.div 
                 className="bg-white h-full"
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
-                transition={{ ease: "linear", duration: 5 }}
+                transition={{ ease: "linear", duration: 1.8 }}
               />
             </div>
           </div>

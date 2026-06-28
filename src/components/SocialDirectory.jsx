@@ -5,7 +5,7 @@ export default function SocialDirectory({ socialLinks, setCursorHovered }) {
     <section id="contact" className="pb-16 my-12 relative">
       <hr className="w-full border-t border-neutral-900 my-0 mb-20 md:mb-28" />
       <div className="mb-20">
-        <span className="font-sans text-neutral-500 text-[10px] tracking-wider block mb-3">
+        <span className="font-sans text-neutral-600 dark:text-neutral-400 text-xs tracking-wider block mb-3">
           Social directory
         </span>
         <h2 className="font-sans text-3xl md:text-5xl font-bold text-white tracking-tight">
@@ -25,7 +25,7 @@ export default function SocialDirectory({ socialLinks, setCursorHovered }) {
             onMouseLeave={() => setCursorHovered(false)}
             className="group relative flex items-center justify-between p-8 border-r border-b border-neutral-800 transition-colors duration-200 hover:bg-white cursor-none"
           >
-            <div className="flex items-center gap-4 text-neutral-500 group-hover:text-black transition-colors duration-200">
+            <div className="flex items-center gap-4 text-neutral-600 dark:text-neutral-400 group-hover:text-black transition-colors duration-200">
               <div className="shrink-0">{link.icon}</div>
               <span className="font-sans text-sm font-bold">{link.label}</span>
             </div>
